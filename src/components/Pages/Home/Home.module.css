@@ -1,14 +1,47 @@
 .home {
   padding: 68px 8px 0px;
-  max-width: 480px;
+  max-width: 30rem;
   width: 100%;
   margin: auto;
 }
 .section {
   position: relative;
   background: rgb(13, 17, 28);
-  border-radius: 16px;
-  padding: 8px;
+  border-radius: 1rem;
+  padding: 0.5rem;
   z-index: 1;
   transition: transform 250ms ease 0s;
+}
+.footer {
+  /* width: 100%; */
+  margin: 1rem 0rem 0rem 0rem;
+}
+.button {
+  background-color: rgba(44, 111, 255, 0.741);
+  color: white;
+  cursor: auto;
+  box-shadow: none;
+  width: 100%;
+  border-radius: 1rem;
+  height: 4rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: pointer;
+}
+.button-disabled {
+  background-color: rgb(41, 50, 73);
+  color: rgb(152, 161, 192);
+  cursor: auto;
+  box-shadow: none;
+  width: 100%;
+  border-radius: 1rem;
+  height: 4rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid transparent;
+  outline: none;
 }
