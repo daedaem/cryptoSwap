@@ -1,15 +1,21 @@
-import Card from "../../UI/Card/Card";
+import Card from "../../Common/Card/Card";
 import React from "react";
-import Header from "../../Common/Header/Header";
+import Header from "../../Layout/Header/Header";
 import classes from "./Home.module.css";
+import SwapCurrency from "../SwapCurrency/SwapCurrency";
 const Home = () => {
+  let coinList;
   return (
     <div className={classes.home}>
       <Card className={classes.section}>
         <section>
           <Header>스왑</Header>
-          <article>하이</article>
-          <input></input>
+          <SwapCurrency></SwapCurrency>
+          <footer>
+            <form action="">
+              <input />
+            </form>
+          </footer>
         </section>
       </Card>
     </div>

@@ -1,13 +1,16 @@
 import React from "react";
 import Home from "./components/Pages/Home/Home";
+import CurrencyProvider from "./store/CurrencyProvider";
 
 function App() {
   return (
-    <React.Fragment>
+    <>
       <main>
-        <Home />
+        <CurrencyProvider>
+          <Home />
+        </CurrencyProvider>
       </main>
-    </React.Fragment>
+    </>
   );
 }
 export default App;

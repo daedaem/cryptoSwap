@@ -1,0 +1,37 @@
+.SwapCurrencyOutput {
+  /* position: relative; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(19, 26, 42);
+  border-radius: 12px;
+  padding: 16px;
+  color: rgb(152, 161, 192);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  width: 90;
+  margin: 0.5rem 0rem;
+}
+.token-amount-output {
+  background-color: transparent;
+  /* padding: 0rem; */
+  /* margin: 0rem; */
+  filter: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out 0s;
+  text-align: left;
+  font-size: 2rem;
+  font-variant: small-caps;
+  font-weight: 400;
+  outline: none;
+  border: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+output::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
