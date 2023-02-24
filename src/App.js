@@ -4,11 +4,11 @@ import CurrencyProvider from "./store/CurrencyProvider";
 
 function App() {
   return (
-    <CurrencyProvider>
-      <main>
+    <main>
+      <CurrencyProvider>
         <Home />
-      </main>
-    </CurrencyProvider>
+      </CurrencyProvider>
+    </main>
   );
 }
 export default App;

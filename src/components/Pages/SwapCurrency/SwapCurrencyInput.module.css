@@ -3,9 +3,9 @@
   border-radius: 1rem;
   color: rgb(152, 161, 192);
   font-size: 14px;
-  min-height: 13vh;
+  min-height: 15vh;
   font-weight: 500;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 0.5rem 0rem;
 }
 .SwapCurrencyInput {
