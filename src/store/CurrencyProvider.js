@@ -2,36 +2,31 @@ import { useEffect, useReducer } from "react";
 import CurrencyContext from "./currency-context";
 
 export const TOKEN_LIST = {
-  ETH: { id: "ethereum" },
-  USDT: { id: "tether" },
-  USDC: { id: "usd-coin" },
-  DAI: { id: "dai" },
-  AAVE: { id: "aave" },
-  WBTC: { id: "bitcoin" },
-  AXS: { id: "axie-infinity" },
-  COMP: { id: "compound-coin" },
-  CRV: { id: "curve-dao-token" },
-  ENS: { id: "ethereum-name-service" },
+  // ETH: { id: "ethereum" },
+  // USDT: { id: "tether" },
+  // USDC: { id: "usd-coin" },
+  // DAI: { id: "dai" },
+  // AAVE: { id: "aave" },
+  // WBTC: { id: "bitcoin" },
+  // AXS: { id: "axie-infinity" },
+  // COMP: { id: "compound-coin" },
+  // CRV: { id: "curve-dao-token" },
+  // ENS: { id: "ethereum-name-service" },
+  ethereum: { name: "ETH" },
+  tether: { name: "USDT" },
+  "usd-coin": { name: "USDC" },
+  dai: { name: "DAI" },
+  aave: { name: "AAVE" },
+  bitcoin: { name: "WBTC" },
+  "axie-infinity": { name: "AXS" },
+  "compound-coin": { name: "COMP" },
+  "curve-dao-token": { name: "CRV" },
+  "ethereum-name-service": { name: "ENS" },
 };
 
 export const findTokenId = (name) => {
-  // console.log(TOKEN_LIST, name);
-  return TOKEN_LIST[name].id;
+  return TOKEN_LIST[name].name;
 };
-// const fetchData = (selectedInputCoin) => {
-//   let result;
-//   async () => {
-//     await AXIOS.get("price", {
-//       params: {
-//         ids: selectedInputCoin,
-//         vs_currencies: "usd",
-//       },
-//     }).then((el) => {
-//       this.result = el;
-//     });
-//   };
-//   return result;
-// };
 
 const defaultCurrencyState = {
   searchedCoins: [],
@@ -63,8 +58,6 @@ const currencyReducer = (state, action) => {
       ) {
         action.val = Number(action.val);
       }
-      // console.log("인풋", state, action);
-      // newState.selectedInputCoin = action.val.selectedInputCoin;
       newState.inputPrice = action.val;
       newState.resultInputPrice = newState.selectedInputCoinVal * action.val;
       return newState;
@@ -80,27 +73,13 @@ const currencyReducer = (state, action) => {
       newState.outputPrice = action.val;
       newState.resultOutputPrice = newState.selectedOutputCoinVal * action.val;
       return newState;
-    // case "RESULT_INPUT":
-    //   newState = { ...state };
-    //   if (newState.resultInputPrice != null) {
-    //     newState.resultInputPrice =
-    //       newState.inputPrice * action.val.resultInputPrice;
-    //   }
-    //   return newState;
-    // case "RESULT_OUTPUT":
-    //   newState = { ...state };
-    //   if (newState.resultOutputPrice != null) {
-    //     newState.resultOutputPrice =
-    //       newState.outputPrice * action.val.resultOutputPrice;
-    //   }
-    //   return newState;
+
     default:
       return state;
   }
 };
 
 const CurrencyProvider = (props) => {
-  console.log("몇번");
   const [currencyState, dispatchCurrencyAction] = useReducer(
     currencyReducer,
     defaultCurrencyState
@@ -118,20 +97,13 @@ const CurrencyProvider = (props) => {
   const outputCoinAmountHandler = (amount) => {
     dispatchCurrencyAction({ type: "OUTPUT_AMOUNT", val: amount });
   };
-  // const resultInputPriceHandler = (result) => {
-  //   dispatchCurrencyAction({ type: "RESULT_INPUT", val: result });
-  // };
-  // const resultOutputPriceHandler = (result) => {
-  //   dispatchCurrencyAction({ type: "RESULT_OUTPUT", val: result });
-  // };
+
   const currencyContext = {
     ...currencyState,
     inputCoinValHandler: inputCoinValHandler,
     outputCoinValHandler: outputCoinValHandler,
     inputCoinAmountHandler: inputCoinAmountHandler,
     outputCoinAmountHandler: outputCoinAmountHandler,
-    // resultInputPriceHandler: resultInputPriceHandler,
-    // resultOutputPriceHandler: resultOutputPriceHandler,
   };
   return (
     <CurrencyContext.Provider value={currencyContext}>

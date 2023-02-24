@@ -5,10 +5,9 @@ import classes from "./Home.module.css";
 import SwapCurrency from "../SwapCurrency/SwapCurrency";
 import CurrencyContext from "../../../store/currency-context";
 const Home = () => {
-  let coinList;
   const ctx = useContext(CurrencyContext);
   const sendButton =
-    ctx.inputPrice || ctx.outputPrice ? (
+    ctx.resultInputPrice || ctx.resultOutputPrice ? (
       <button className={classes.button}>스 왑</button>
     ) : (
       <button className={`${classes["button-disabled"]}`} disabled>

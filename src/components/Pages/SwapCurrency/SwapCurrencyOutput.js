@@ -51,11 +51,13 @@ const SwapCurrencyOutput = () => {
             onChange={InputChangeHandler}
           />
         </form>
-        <button onSubmit={selectedCoinHandler}>하이</button>
+        <button className={classes.modalbutton} onSubmit={selectedCoinHandler}>
+          {findTokenId(ctx.selectedOutputCoin)}
+        </button>
       </div>
       <div className={classes.resultOutputPrice}>
         {ctx.outputPrice !== 0 && ctx.resultOutputPrice && (
-          <p>{Math.floor(ctx.resultOutputPrice * 100) / 100}</p>
+          <p>{Math.round(ctx.resultOutputPrice * 100) / 100}</p>
         )}
       </div>
     </article>
