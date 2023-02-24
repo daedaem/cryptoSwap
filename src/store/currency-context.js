@@ -6,8 +6,6 @@ const CurrencyContext = React.createContext({
   selectedOutputCoin: "",
   resultInputPrice: 0,
   resultOutputPrice: 0,
-  searchItem: (id) => {},
-  changeInput: (val) => {},
 });
 
 export default CurrencyContext;
