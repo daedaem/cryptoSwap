@@ -1,0 +1,49 @@
+.modal {
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modalExitButton {
+  color: white;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 0px transparent;
+}
+.modalInputForm {
+  width: 90%;
+  margin: 0.5rem auto;
+  border: 1px solid rgba(44, 111, 255, 0.741);
+  border-radius: 1rem;
+}
+.modalInput {
+  background-color: transparent;
+  opacity: 1;
+  filter: none;
+  /* transition: opacity 0.2s ease-in-out 0s; */
+  text-align: left;
+  width: 100%;
+  margin: 0.5rem 0rem 1rem 0rem;
+  font-size: 2rem;
+  padding: 0rem 0.5rem;
+  border: 1px transparent;
+  font-weight: 400;
+  outline: none;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* font-variant: small-caps; */
+}
+.searchedList {
+  min-height: 30vh;
+  overflow: auto;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(44, 111, 255, 0.741);
+  font: 1rem bold;
+}
