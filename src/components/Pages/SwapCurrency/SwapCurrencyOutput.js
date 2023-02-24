@@ -26,21 +26,21 @@ const SwapCurrencyOutput = (props) => {
       if (!/^[\d]*\.?[\d]{0,10}$/.test(val)) {
         val = val.toFixed(10);
       }
-
       ctx.inputCoinAmountHandler(val);
     } else {
       ctx.inputCoinAmountHandler("");
     }
   }, [amount]);
 
-  const selectedCoinHandler = (e) => {
-    setSelectedCoin(e);
+  const selectedCoinHandler = (tokenName) => {
+    ctx.searchKeywordChangeHandler(tokenName);
+    setSelectedCoin(tokenName);
   };
   const InputChangeHandler = (e) => {
     const inputs = e.target.value.trim();
     if (/^[\d]*\.?[\d]{0,10}$/.test(inputs)) {
-      ctx.outputCoinAmountHandler(inputs); //TODO : 확인
-      setAmount(inputs); //TODO : 확인
+      ctx.outputCoinAmountHandler(inputs);
+      setAmount(inputs);
     }
   };
   const modalCloseHandler = () => {
@@ -61,7 +61,7 @@ const SwapCurrencyOutput = (props) => {
             onChange={InputChangeHandler}
           />
         </form>
-        <button className={classes.modalbutton} onClick={modalOpenHandler}>
+        <button className={classes.modalButton} onClick={modalOpenHandler}>
           {ctx.selectedOutputCoin}
         </button>
         {isModal && (

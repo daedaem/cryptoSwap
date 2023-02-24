@@ -11,10 +11,11 @@
 .modal {
   position: fixed;
   top: 15vh;
+  left: 33%;
   min-width: 30vw;
-  min-height: 50vh;
-  margin: 0.5rem 0rem;
-  padding: 0.5rem 1rem;
+  min-height: 60vh;
+  /* margin: 0rem 0rem; */
+  padding: 0rem 0rem;
   z-index: 30;
   border-radius: 1rem;
   /* background-color: rgb(19, 26, 42); */

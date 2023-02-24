@@ -12,16 +12,6 @@ export const TOKEN_LIST = {
   COMP: { id: "compound-coin" },
   CRV: { id: "curve-dao-token" },
   ENS: { id: "ethereum-name-service" },
-  // ethereum: { name: "ETH" },
-  // tether: { name: "USDT" },
-  // "usd-coin": { name: "USDC" },
-  // dai: { name: "DAI" },
-  // aave: { name: "AAVE" },
-  // bitcoin: { name: "WBTC" },
-  // "axie-infinity": { name: "AXS" },
-  // "compound-coin": { name: "COMP" },
-  // "curve-dao-token": { name: "CRV" },
-  // "ethereum-name-service": { name: "ENS" },
 };
 
 export const findTokenId = (name) => {
@@ -29,7 +19,7 @@ export const findTokenId = (name) => {
 };
 
 const defaultCurrencyState = {
-  searchedCoins: [],
+  searchedCoins: ["DAI", "USDC"],
   inputPrice: "",
   outputPrice: "",
   selectedInputCoinVal: 0,
@@ -74,7 +64,22 @@ const currencyReducer = (state, action) => {
       newState.outputPrice = action.val;
       newState.resultOutputPrice = newState.selectedOutputCoinVal * action.val;
       return newState;
-
+    case "SEARCH_KEYWORD":
+      newState = { ...state };
+      if (
+        newState.searchedCoins.find((el) => {
+          if (el == action.val) return true;
+        })
+      ) {
+        return newState;
+      }
+      if (newState.searchedCoins.length > 7) {
+        newState.searchedCoins.shift();
+      }
+      newState.searchedCoins.push(action.val);
+      const selectedCoins = JSON.stringify(newState.searchedCoins);
+      localStorage.setItem("keywords", selectedCoins);
+      return newState;
     default:
       return state;
   }
@@ -104,13 +109,16 @@ const CurrencyProvider = (props) => {
   const outputCoinAmountHandler = (amount) => {
     dispatchCurrencyAction({ type: "OUTPUT_AMOUNT", val: amount });
   };
-
+  const searchKeywordChangeHandler = (keyword) => {
+    dispatchCurrencyAction({ type: "SEARCH_KEYWORD", val: keyword });
+  };
   const currencyContext = {
     ...currencyState,
     inputCoinValHandler: inputCoinValHandler,
     outputCoinValHandler: outputCoinValHandler,
     inputCoinAmountHandler: inputCoinAmountHandler,
     outputCoinAmountHandler: outputCoinAmountHandler,
+    searchKeywordChangeHandler: searchKeywordChangeHandler,
   };
   return (
     <CurrencyContext.Provider value={currencyContext}>

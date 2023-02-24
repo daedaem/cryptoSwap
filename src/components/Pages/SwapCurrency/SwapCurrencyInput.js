@@ -31,16 +31,16 @@ const SwapCurrencyInput = (props) => {
       ctx.outputCoinAmountHandler("");
     }
   }, [amount]);
-
-  const selectedCoinHandler = (e) => {
-    setSelectedCoin(e);
+  const selectedCoinHandler = (tokenName) => {
+    ctx.searchKeywordChangeHandler(tokenName);
+    setSelectedCoin(tokenName);
   };
 
   const InputChangeHandler = (e) => {
     const inputs = e.target.value.trim();
     if (/^[\d]*\.?[\d]{0,10}$/.test(inputs)) {
-      ctx.inputCoinAmountHandler(inputs); //TODO : 확인
-      setAmount(inputs); //TODO : 확인
+      ctx.inputCoinAmountHandler(inputs);
+      setAmount(inputs);
     }
   };
   const modalCloseHandler = () => {

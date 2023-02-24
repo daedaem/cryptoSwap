@@ -8,7 +8,12 @@ const Home = () => {
   const ctx = useContext(CurrencyContext);
   const sendButton =
     ctx.resultInputPrice || ctx.resultOutputPrice ? (
-      <button className={classes.button}>스 왑</button>
+      <button
+        onClick={() => alert("준비 중입니다.")}
+        className={classes.button}
+      >
+        스 왑
+      </button>
     ) : (
       <button className={`${classes["button-disabled"]}`} disabled>
         금액을 입력해주세요

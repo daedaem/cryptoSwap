@@ -1,4 +1,12 @@
 .listFrame {
   height: 3rem;
   color: white;
+  padding: 0.5rem 1rem;
+}
+.listFrame.hovering {
+  height: 3rem;
+  color: white;
+  background-color: #1a1f2b;
+  opacity: 1;
+  cursor: pointer;
 }

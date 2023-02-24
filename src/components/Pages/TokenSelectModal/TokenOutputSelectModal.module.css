@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5rem 1rem;
 }
 .modalExitButton {
   color: white;
@@ -14,8 +15,13 @@
 .modalInputForm {
   width: 90%;
   margin: 0.5rem auto;
-  border: 1px solid rgba(44, 111, 255, 0.741);
+  background-color: #131a2a;
+  border: 1px solid rgb(27, 34, 54);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+  /* border: 1px solid rgba(44, 111, 255, 0.741); */
   border-radius: 1rem;
+  /* padding: 0.5rem 1rem; */
 }
 .modalInput {
   background-color: transparent;
@@ -24,21 +30,45 @@
   /* transition: opacity 0.2s ease-in-out 0s; */
   text-align: left;
   width: 100%;
-  margin: 0.5rem 0rem 1rem 0rem;
-  font-size: 2rem;
+  margin: 0.5rem 0rem 0.5rem 0rem;
+  font-size: 1.5rem;
   padding: 0rem 0.5rem;
   border: 1px transparent;
   font-weight: 400;
   outline: none;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   /* font-variant: small-caps; */
 }
+.searchKeywordButtons {
+  padding: 0.5rem 1rem;
+  display: grid;
+  /* row-gap: 4rem; */
+  /* column-gap: 4rem; */
+  grid-template-columns: repeat(auto-fill, minmax(30%, auto));
+}
+.searchKeywordButtonForm {
+}
+.searchedButton {
+  width: 4rem;
+  height: 2.5rem;
+  margin: 0.5rem 0rem;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 1px solid rgb(27, 34, 54);
+}
 .searchedList {
   min-height: 30vh;
   overflow: auto;
+  padding: 0rem;
+}
+.searchedList-empty-content {
+  min-height: 30vh;
+}
+.searchedList-empty-content-title {
+  text-align: center;
 }
 .footer {
   display: flex;
@@ -46,4 +76,5 @@
   align-items: center;
   color: rgba(44, 111, 255, 0.741);
   font: 1rem bold;
+  cursor: pointer;
 }

@@ -26,16 +26,3 @@ export const FetchData = async (coinName, vs_currencies) => {
   });
   return result;
 };
-
-// export const getD = async (nowData) => {
-//   const URL =
-//     "https://main-chatbot-api-ainize-team.endpoint.ainize.ai/v1/bot/chat";
-//   await axios
-//     .post(URL, { message: nowData.message })
-//     .then((data) => {
-//       setTextData((prevdata) => {
-//         return [...prevdata, { message: data.data, to: "human" }];
-//       });
-//     })
-//     .catch((error) => console.log(error));
-// };
